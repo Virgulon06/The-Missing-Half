@@ -1,12 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Party Quiz 🎉</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Party Questionnaire</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: radial-gradient(circle at top, #2b2112, #050505 60%);
+      color: #f5e6b8;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .card {
+      max-width: 650px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.82);
+      border: 1px solid #c9a646;
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 0 40px rgba(201, 166, 70, 0.25);
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffd76a;
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #d8c48a;
+      margin-bottom: 32px;
+    }
+
+    .question {
+      margin-bottom: 28px;
+    }
+
+    .question h2 {
+      font-size: 1.1rem;
+      color: #ffd76a;
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      padding: 14px 16px;
+      margin: 10px 0;
+      border: 1px solid #7d6829;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.2s;
+      background: rgba(255, 215, 106, 0.05);
+    }
+
+    label:hover {
+      background: rgba(255, 215, 106, 0.16);
+      transform: translateY(-2px);
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+      accent-color: #ffd76a;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #b88a1d, #ffd76a, #8f6814);
+      color: #111;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      filter: brightness(1.1);
+    }
+
+    #thanks {
+      display: none;
+      text-align: center;
+      color: #ffd76a;
+      font-size: 1.4rem;
+      margin-top: 24px;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="card">
+    <h1>Party Questionnaire</h1>
+    <p class="subtitle">Answer carefully. Your choices may appear later tonight ✨</p>
 
-<h1>Welcome to the Party!</h1>
-<p>Scan the QR code and start the fun 😄</p>
+    <form id="quizForm">
+      <div class="question">
+        <h2>1. What is your party personality?</h2>
+        <label><input type="radio" name="personality" value="Dancer" required> The dancer</label>
+        <label><input type="radio" name="personality" value="Comedian"> The comedian</label>
+        <label><input type="radio" name="personality" value="Observer"> The mysterious observer</label>
+        <label><input type="radio" name="personality" value="Chaos"> The agent of chaos</label>
+      </div>
 
+      <div class="question">
+        <h2>2. Pick a luxury item.</h2>
+        <label><input type="radio" name="luxury" value="Champagne" required> Champagne</label>
+        <label><input type="radio" name="luxury" value="Sports car"> A sports car</label>
+        <label><input type="radio" name="luxury" value="Private island"> A private island</label>
+        <label><input type="radio" name="luxury" value="Gold watch"> A gold watch</label>
+      </div>
+
+      <div class="question">
+        <h2>3. Which song would bring you to the dance floor?</h2>
+        <label><input type="radio" name="song" value="Pop" required> A pop anthem</label>
+        <label><input type="radio" name="song" value="Disco"> A disco classic</label>
+        <label><input type="radio" name="song" value="Latin"> Something Latin</label>
+        <label><input type="radio" name="song" value="Throwback"> A throwback hit</label>
+      </div>
+
+      <button type="submit">Submit Answers</button>
+    </form>
+
+    <div id="thanks">Thank you. Your secrets are safe… for now 🥂</div>
+  </div>
+
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("quizForm").style.display = "none";
+      document.getElementById("thanks").style.display = "block";
+    });
+  </script>
 </body>
 </html>
